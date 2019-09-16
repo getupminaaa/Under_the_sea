@@ -9,7 +9,7 @@ public class Fcontroller : MonoBehaviour
     bool isDead;
 
     public float maxHeight;
-    public float flapVelocity;
+    public float thrust;
 
     public bool IsDead()
     {
@@ -26,24 +26,36 @@ public class Fcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && transform.position.y < maxHeight) { Flap(); }
+        if (isDead) return;
+        if (Input.GetKey(KeyCode.UpArrow) == true) {
+            rb2d.AddForce(transform.up * thrust * Time.deltaTime);
+            Debug.Log("UpArrow");
+        } else if (Input.GetKey(KeyCode.DownArrow) == true)
+        {
+            rb2d.AddForce(transform.up* -1 * thrust * Time.deltaTime);
+            Debug.Log("DownArrow");
+        } else if (Input.GetKey(KeyCode.RightArrow) == true)
+        {
+            Debug.Log("RightArrow");
+            rb2d.AddForce(transform.right * thrust * Time.deltaTime);
+        } else if(Input.GetKey(KeyCode.LeftArrow) == true)
+        {
+            rb2d.AddForce(transform.right* -1 * thrust * Time.deltaTime);
+            Debug.Log("LeftArrow");
+        }
+
 
     }
-    public void Flap()
-    {
-        if (isDead) return;
-        if (rb2d.isKinematic) return;
-        rb2d.velocity = new Vector2(0.0f, flapVelocity);
-    }
-  
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (isDead) return;
-        Camera.main.SendMessage("Clash");
+        //Camera.main.SendMessage("Clash");
         isDead = true;
     }
     public void SetSteerActive(bool active)
     {
         rb2d.isKinematic = !active;
     }
+
 }
