@@ -2,27 +2,35 @@
 
 public class AnchorController : MonoBehaviour
 {
+    Rigidbody2D rigid;
     float speed;
     float maxHeight;
+    bool bUp;
 
     // Start is called before the first frame update
     void Start()
     {
         maxHeight = gameObject.transform.position.y;
+        rigid = gameObject.GetComponent<Rigidbody2D>();
+        bUp = true;
+        speed = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        rigid.velocity = Vector2.down * Time.deltaTime * (bUp ? -1 : 1) * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Ground")
+        if (collision.collider.tag == "Ground")
         {
-            gameObject.transform.position = new Vector2(gameObject.transform.position.x, maxHeight);
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            bUp = true;
+        }
+        else
+        {
+            bUp = false;
         }
     }
 }

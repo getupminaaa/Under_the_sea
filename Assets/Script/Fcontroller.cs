@@ -74,6 +74,17 @@ public class Fcontroller : MonoBehaviour
         //Camera.main.SendMessage("Clash");
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isDead) return;
+        if (collision.tag == "Background")
+        {
+            isDead = true;
+            controller.RecordRank(score);
+            Time.timeScale = 0;
+        }
+    }
+
     public void SetSteerActive(bool active)
     {
         rb2d.isKinematic = !active;
