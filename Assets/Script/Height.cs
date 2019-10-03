@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heigh : MonoBehaviour
+public class Height : MonoBehaviour
 {
     public float minHeight;
     public float maxHeight;
@@ -22,7 +22,7 @@ public class Heigh : MonoBehaviour
     void OnScrollEnd()
     {
         ChangeHeight();
-
+   
     }
 }
 
