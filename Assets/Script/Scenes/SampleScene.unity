@@ -2611,6 +2611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f20ef43d0b0da49b128320da69418b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 1484636948}
 --- !u!4 &1042080071
 Transform:
   m_ObjectHideFlags: 0
@@ -3495,8 +3496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93926931084fc2e49b87e789743cf27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  score: 0
+  controller: {fileID: 1042080070}
   maxHeight: 11
   thrust: 30
 --- !u!50 &1484636949

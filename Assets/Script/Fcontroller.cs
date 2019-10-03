@@ -5,7 +5,8 @@ public class Fcontroller : MonoBehaviour
     public GameController controller;
 
     [HideInInspector]
-    public int score;
+    private int score;
+    public int Score { get { return score; } }
 
     Rigidbody2D rb2d;
     bool isDead;
