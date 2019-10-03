@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
@@ -52,5 +53,22 @@ public class GameController : MonoBehaviour
         }
 
         score = 0;
+    }
+
+    public List<KeyValuePair<string, int>> GetRank()
+    {
+        List<KeyValuePair<string, int>> rank = new List<KeyValuePair<string, int>>();
+
+        for (int i = 1; i <= 10; i++)
+        {
+            string name = PlayerPrefs.GetString(i + "위", null);
+            int score = PlayerPrefs.GetInt(i + "위", -1);
+            if (score != -1)
+            {
+                rank.Add(new KeyValuePair<string, int>(name, score));
+            }
+        }
+
+        return rank;
     }
 }
