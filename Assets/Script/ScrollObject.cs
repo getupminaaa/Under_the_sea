@@ -3,9 +3,19 @@ using UnityEngine;
 
 public class ScrollObject : MonoBehaviour
 {
-    public float speed = 1.0f;
+    [HideInInspector]
+    public float speed;
+    [HideInInspector]
     public float startPosition;
+    [HideInInspector]
     public float endPosition;
+
+    private void Start()
+    {
+        speed = 4;
+        startPosition = 35;
+        endPosition = -startPosition;
+    }
 
     // Update is called once per frame
     void Update()
