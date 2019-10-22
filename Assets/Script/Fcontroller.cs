@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Fcontroller : MonoBehaviour
 {
@@ -38,22 +39,18 @@ public class Fcontroller : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow) == true)
         {
             rb2d.AddForce(transform.up * thrust * Time.deltaTime);
-            Debug.Log("UpArrow");
         }
         else if (Input.GetKey(KeyCode.DownArrow) == true)
         {
             rb2d.AddForce(transform.up * -1 * thrust * Time.deltaTime);
-            Debug.Log("DownArrow");
         }
         else if (Input.GetKey(KeyCode.RightArrow) == true)
         {
-            Debug.Log("RightArrow");
             rb2d.AddForce(transform.right * thrust * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.LeftArrow) == true)
         {
             rb2d.AddForce(transform.right * -1 * thrust * Time.deltaTime);
-            Debug.Log("LeftArrow");
         }
     }
 
@@ -68,6 +65,15 @@ public class Fcontroller : MonoBehaviour
         {
             isDead = true;
             controller.RecordRank(score);
+            List<KeyValuePair<string, int>> rankLst = controller.GetRank();
+            int i = 1;
+            foreach (KeyValuePair<string, int> rank in rankLst)
+            {
+                if (rank.Value != -1)
+                {
+                    Debug.Log(i++ + "위 : " + rank.Value + "점");
+                }
+            }
             Time.timeScale = 0;
         }
         
