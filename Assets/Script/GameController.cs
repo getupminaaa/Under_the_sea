@@ -17,8 +17,7 @@ public class GameController : MonoBehaviour
     {
        if (character.IsDead() && Input.GetKey(KeyCode.Space))
         {
-            Time.timeScale = 1;
-            SceneManager.LoadScene("SampleScene");
+            ReGame();
         }
     }
 
@@ -28,9 +27,14 @@ public class GameController : MonoBehaviour
         GUI.Label(new Rect(30, 10, text.Length * 10, 30), text, guiStyle);
         if (character.IsDead() && GUI.Button(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 25, 150, 50), "다시 시작(Space)"))
         {
-            Time.timeScale = 1;
-            SceneManager.LoadScene("SampleScene");
+            ReGame();
         }
+    }
+
+    private void ReGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("게임플레이화면");
     }
 
     public void RecordRank(int score)
