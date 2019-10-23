@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,7 +25,7 @@ public class GameController : MonoBehaviour
 
     private void OnGUI()
     {
-        string text = "점수 : " + character.Score + "점";
+        string text = "점수 : " + character.Score.ToString("0.00") + "점";
         GUI.Label(new Rect(30, 10, text.Length * 10, 30), text, guiStyle);
         if (character.IsDead() && GUI.Button(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 25, 150, 50), "다시 시작(Space)"))
         {
