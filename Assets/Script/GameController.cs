@@ -7,12 +7,14 @@ public class GameController : MonoBehaviour
 {
     public Fcontroller character;
     GUIStyle guiStyle;
+    public GameObject retryBtn;
     const int maxRank = 21;
 
     private void Start()
     {
         guiStyle = new GUIStyle("Button");
         guiStyle.alignment = TextAnchor.MiddleCenter;
+        retryBtn.SetActive(false);
     }
 
     private void Update()
@@ -32,7 +34,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void ReGame()
+    public void ReGame()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("게임플레이화면");

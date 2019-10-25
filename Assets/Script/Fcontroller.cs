@@ -112,6 +112,7 @@ public class Fcontroller : MonoBehaviour
         else
         {
             isDead = true;
+            controller.retryBtn.SetActive(true);
             controller.RecordRank((int)score);
             List<KeyValuePair<string, int>> rankLst = controller.GetRank();
             Time.timeScale = 0;
