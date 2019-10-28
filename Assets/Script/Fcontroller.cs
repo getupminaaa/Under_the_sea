@@ -10,6 +10,7 @@ public class Fcontroller : MonoBehaviour
     private int[] baseScore;
 
     private int index;
+    public string Name { get; private set; }
     private float score;
     public float Score
     {
@@ -62,6 +63,7 @@ public class Fcontroller : MonoBehaviour
     public void Initalize()
     {
         score = 0;
+        Name = "";
         isDead = false;
 
         presentPos = gameObject.transform.position;
@@ -102,18 +104,25 @@ public class Fcontroller : MonoBehaviour
         return answer;
     }
 
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 30), Score.ToString("0.00"), new GUIStyle("Button"));
+        if (!isDead) return;
+
+        Name = GUI.TextField(new Rect((Screen.width - 300) / 2, 120, 300, 30), Name);
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (isDead) return;
         if (collision.collider.tag == "Item")
         {
-            score++;
+            Score++;
         }
         else
         {
             isDead = true;
             controller.retryBtn.SetActive(true);
-            controller.RecordRank((int)score);
             Time.timeScale = 0;
         }
         
@@ -126,7 +135,6 @@ public class Fcontroller : MonoBehaviour
         if (collision.tag == "Background")
         {
             isDead = true;
-            controller.RecordRank((int)score);
             Time.timeScale = 0;
         }
     }
@@ -135,5 +143,4 @@ public class Fcontroller : MonoBehaviour
     {
         rb2d.isKinematic = !active;
     }
-
 }

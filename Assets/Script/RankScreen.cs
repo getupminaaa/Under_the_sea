@@ -12,7 +12,7 @@ public class RankScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ranks = GetRank();
+        ranks = GetAllRank();
         rightAlign = new GUIStyle("Label");
         rightAlign.alignment = TextAnchor.MiddleRight;
     }
@@ -31,8 +31,8 @@ public class RankScreen : MonoBehaviour
         }
 
         float width = 400;
-        int initY = 20;
-        for (int i = 1; i <= GameController.maxRank; i++)
+        int initY = 20, rankNum = ranks.Count;
+        for (int i = 1; i <= rankNum; i++)
         {
             GUI.Label(new Rect((Screen.width - width) / 2, initY, 30, 20), i + "위", rightAlign);
             GUI.Label(new Rect((Screen.width - width) / 2 + 30, initY, 150, 20), ranks[i - 1].Key, rightAlign);
@@ -42,13 +42,13 @@ public class RankScreen : MonoBehaviour
         }
     }
 
-    public List<KeyValuePair<string, int>> GetRank()
+    public List<KeyValuePair<string, int>> GetAllRank()
     {
         List<KeyValuePair<string, int>> rank = new List<KeyValuePair<string, int>>();
 
         for (int i = 1; i <= GameController.maxRank; i++)
         {
-            string name = PlayerPrefs.GetString(i + "위", "임시");
+            string name = PlayerPrefs.GetString(i + "위이름", "");
             int score = PlayerPrefs.GetInt(i + "위", -1);
             if (score != -1)
             {
