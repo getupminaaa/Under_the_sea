@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4f486e06f9538942a3fcdcf7060b26d
+guid: 296e993e7e9dd174bba95d771465b0da
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,10 +8,11 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: CookieRun
+  fontName: Black Han Sans
   fontNames:
-  - CookieRun
-  fallbackFontReferences: []
+  - Black Han Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 30090d1b1c1ac284e9e3b8138d7e949c, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

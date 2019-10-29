@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FadeController : MonoBehaviour
 {
-    int time = 3;
+    int time = 5;
     SpriteRenderer sr;
     private bool fade;
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e627850c413de6c4eb7936a19005ac00
+guid: 9e634db07b935de4b9d443db0a6196e9
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,11 +8,11 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: CookieRun
+  fontName: NIXGONFONTS V2.0
   fontNames:
-  - CookieRun
+  - NIXGONFONTS V2.0
   fallbackFontReferences:
-  - {fileID: 12800000, guid: a4f486e06f9538942a3fcdcf7060b26d, type: 3}
+  - {fileID: 12800000, guid: 651331bfec69e31428c86cae8baf4ae1, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
