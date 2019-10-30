@@ -18,8 +18,8 @@ public class Worm : MonoBehaviour
         {
             Start();
             ScrollEnd();
-            gameObject.GetComponent<Fcontroller>().bScale = true;
-            gameObject.GetComponent<Fcontroller>().maxTime = 3.8f;
+            colWo.gameObject.transform.parent.GetComponent<Fcontroller>().bScale = true;
+            colWo.gameObject.transform.parent.GetComponent<Fcontroller>().maxTime = 3.8f;
         }
     }
     //if (붙이힌 객체가 물고기인지 확인){

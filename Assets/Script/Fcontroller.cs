@@ -98,13 +98,13 @@ public class Fcontroller : MonoBehaviour
         if (bScale)
         { 
             validatedTime += Time.deltaTime;
-            gameObject.transform.parent.localScale = new Vector2(1.8f,1.8f);
+            gameObject.transform.localScale = new Vector2(1.8f,1.8f);
         }
         if (maxTime <= validatedTime)
         {
-            Debug.Log(maxTime);
             bScale = false;
-            gameObject.transform.parent.localScale = new Vector2(1, 1);
+            validatedTime = 0;
+            gameObject.transform.localScale = new Vector2(1, 1);
         }
     }
 
