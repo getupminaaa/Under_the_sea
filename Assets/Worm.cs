@@ -10,8 +10,7 @@ public class Worm : MonoBehaviour
     public float startPosition;
     [HideInInspector]
     public float endPosition;
-
-
+    int kTime = 4;
     public GameObject[] character;
     private void OnTriggerEnter2D(Collider2D colWo)
     {
@@ -19,10 +18,16 @@ public class Worm : MonoBehaviour
         {
             Start();
             ScrollEnd();
+            gameObject.GetComponent<Fcontroller>().bScale = true;
+            gameObject.GetComponent<Fcontroller>().maxTime = 3.8f;
         }
     }
+    //if (붙이힌 객체가 물고기인지 확인){
+    //물고기니까
+ 
+    //}
     // Start is called before the first frame update
-    private void Start()
+private void Start()
     {
         speed = 4;
         startPosition = 35;
@@ -33,7 +38,7 @@ public class Worm : MonoBehaviour
         transform.Translate(-1 * (endPosition - startPosition), 0, 0);
         SendMessage("OnScrollEnd", SendMessageOptions.DontRequireReceiver);
     }
-
+    
     // Update is called once per frame
     void Update()
     {

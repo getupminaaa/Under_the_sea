@@ -8,7 +8,9 @@ public class Fcontroller : MonoBehaviour
 
     public GameObject[] character;
     private int[] baseScore;
-
+    public float validatedTime;
+    public float maxTime;
+    public bool bScale;
     private int index;
     public string Name { get; private set; }
     private float score;
@@ -92,6 +94,18 @@ public class Fcontroller : MonoBehaviour
         float add = CalculateDistance(presentPos, gameObject.transform.position);
         Score += add;
         presentPos = gameObject.transform.position;
+
+        if (bScale)
+        { 
+            validatedTime += Time.deltaTime;
+            gameObject.transform.parent.localScale = new Vector2(1.8f,1.8f);
+        }
+        if (maxTime <= validatedTime)
+        {
+            Debug.Log(maxTime);
+            bScale = false;
+            gameObject.transform.parent.localScale = new Vector2(1, 1);
+        }
     }
 
     public float CalculateDistance(Vector2 beforePos, Vector2 afterPos)

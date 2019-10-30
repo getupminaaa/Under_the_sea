@@ -13,7 +13,7 @@ public class AnchorController : MonoBehaviour
         maxHeight = gameObject.transform.position.y;
         rigid = gameObject.GetComponent<Rigidbody2D>();
         bUp = true;
-        speed = 100;
+        speed = 120;
     }
 
     // Update is called once per frame
