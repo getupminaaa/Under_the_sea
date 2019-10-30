@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     public Fcontroller character;
     GUIStyle guiStyle;
     public GameObject retryBtn;
-    public const int maxRank = 21;
+    const int maxRank = 21;
 
     private void Start()
     {
@@ -84,5 +84,22 @@ public class GameController : MonoBehaviour
             Debug.Log("이름은 " + PlayerPrefs.GetString(rank + "위이름", "") + "입니다.");
             Debug.Log("점수는 " + PlayerPrefs.GetInt(rank + "위", -1) + "입니다.");
         }
+    }
+
+    public List<KeyValuePair<string, int>> GetRank()
+    {
+        List<KeyValuePair<string, int>> rank = new List<KeyValuePair<string, int>>();
+
+        for (int i = 1; i <= maxRank; i++)
+        {
+            string name = PlayerPrefs.GetString(i + "위", null);
+            int score = PlayerPrefs.GetInt(i + "위", -1);
+            if (score != -1)
+            {
+                rank.Add(new KeyValuePair<string, int>(name, score));
+            }
+        }
+
+        return rank;
     }
 }
