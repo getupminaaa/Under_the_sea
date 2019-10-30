@@ -37,14 +37,21 @@ public class GameController : MonoBehaviour
     public void ReGame()
     {
         Time.timeScale = 1;
-        RecordRank(character.Name, (int)character.Score);
+        if (character.IsDead())
+        {
+            RecordRank(character.Name, (int)character.Score);
+        }
+
         SceneManager.LoadScene("게임플레이화면");
     }
 
     private void GoMain()
     {
         Time.timeScale = 1;
-        RecordRank(character.Name, (int)character.Score);
+        if (character.IsDead())
+        {
+            RecordRank(character.Name, (int)character.Score);
+        }
         SceneManager.LoadScene("대기화면");
     }
 

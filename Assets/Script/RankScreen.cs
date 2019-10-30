@@ -7,14 +7,41 @@ public class RankScreen : MonoBehaviour
 {
 
     private List<KeyValuePair<string, int>> ranks;
-    private GUIStyle rightAlign;
+    private GUIStyle textAlign;
+    private int page;
+    public int Page
+    {
+        get
+        {
+            return page;
+        }
+
+        set
+        {
+            if (value < 0)
+            {
+                page = 0;
+            }
+            else if (value > 2)
+            {
+                page = 2;
+            }
+            else
+            {
+                page = value;
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        page = 0;
         ranks = GetAllRank();
-        rightAlign = new GUIStyle("Label");
-        rightAlign.alignment = TextAnchor.MiddleRight;
+        textAlign = new GUIStyle("Label");
+        textAlign.fontSize = 25;
+        textAlign.normal.textColor = Color.black;
+        textAlign.alignment = TextAnchor.MiddleRight;
     }
 
     // Update is called once per frame
@@ -25,20 +52,27 @@ public class RankScreen : MonoBehaviour
 
     private void OnGUI()
     {
-        if (GUI.Button(new Rect(10, 10, 100, 35), "뒤로 가기"))
+        int y = 170, height = 30, rankNum = ranks.Count;
+        for (int i = page * 7 + 1; i <= (page + 1) * 7; i++)
         {
-            SceneManager.LoadScene("대기화면");
+            if (ranks[i - 1].Value == -1) break;
+            // 1280 * 720
+
+            GUI.Label(new Rect(170, y, 60, height), i + "위", textAlign);
+            GUI.Label(new Rect(260, y, 370, height), ranks[i - 1].Key, textAlign);
+            GUI.Label(new Rect(660, y, 450, height), ranks[i - 1].Value.ToString(), textAlign);
+
+            y += 62;
         }
 
-        float width = 400;
-        int initY = 20, rankNum = ranks.Count;
-        for (int i = 1; i <= rankNum; i++)
+        if (GUI.Button(new Rect((Screen.width - 50) / 2, y, height, height), "<"))
         {
-            GUI.Label(new Rect((Screen.width - width) / 2, initY, 30, 20), i + "위", rightAlign);
-            GUI.Label(new Rect((Screen.width - width) / 2 + 30, initY, 150, 20), ranks[i - 1].Key, rightAlign);
-            GUI.Label(new Rect((Screen.width - width) / 2 + 100 + 100, initY, 130, 20), ranks[i - 1].Value.ToString(), rightAlign);
+            Page--;
+        }
 
-            initY += 25;
+        if (GUI.Button(new Rect((Screen.width + 50) / 2, y, height, height), ">"))
+        {
+            Page++;
         }
     }
 
@@ -50,10 +84,8 @@ public class RankScreen : MonoBehaviour
         {
             string name = PlayerPrefs.GetString(i + "위이름", "");
             int score = PlayerPrefs.GetInt(i + "위", -1);
-            if (score != -1)
-            {
-                rank.Add(new KeyValuePair<string, int>(name, score));
-            }
+
+            rank.Add(new KeyValuePair<string, int>(name, score));
         }
 
         return rank;
