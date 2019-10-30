@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     public Fcontroller character;
     GUIStyle guiStyle;
     public GameObject retryBtn;
-    const int maxRank = 21;
+    public const int maxRank = 21;
 
     private void Start()
     {

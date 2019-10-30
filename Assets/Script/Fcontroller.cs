@@ -107,7 +107,14 @@ public class Fcontroller : MonoBehaviour
     private void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 100, 30), Score.ToString("0.00"), new GUIStyle("Button"));
-        if (!isDead) return;
+        if (!isDead)
+        {
+            return;
+        }
+        else
+        {
+            controller.retryBtn.SetActive(true);
+        }
 
         Name = GUI.TextField(new Rect((Screen.width - 300) / 2, 120, 300, 30), Name);
     }
