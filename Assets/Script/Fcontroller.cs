@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Fcontroller : MonoBehaviour
 {
@@ -140,7 +140,6 @@ public class Fcontroller : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 100, 30), Score.ToString("0.00"), new GUIStyle("Button"));
         if (!isDead)
         {
             return;
