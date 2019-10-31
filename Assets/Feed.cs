@@ -21,6 +21,7 @@ public class Feed : MonoBehaviour
             ScrollEnd();
         }
     }
+
     // Start is called before the first frame update
     private void Start()
     {

@@ -10,7 +10,7 @@ public class Shrimp : MonoBehaviour
     public float startPosition;
     [HideInInspector]
     public float endPosition;
-
+    public uController[] uObjs;
     
     public GameObject[] character;
     private void OnTriggerEnter2D(Collider2D colSh)
@@ -19,6 +19,11 @@ public class Shrimp : MonoBehaviour
         {
             Start();
             ScrollEnd();
+            foreach (uController uObj in uObjs)
+            {
+                uObj.uChSize = true;
+                uObj.maxTime = 6.5f;
+            }
         }
     }
     // Start is called before the first frame update
