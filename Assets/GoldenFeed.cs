@@ -20,7 +20,7 @@ public class GoldenFeed : MonoBehaviour
             Start();
             ScrollEnd();
             colGF.gameObject.transform.parent.GetComponent<Fcontroller>().gIgnore = true;
-            colGF.gameObject.transform.parent.GetComponent<Fcontroller>().maxTime = 6.5f;
+            colGF.gameObject.transform.parent.GetComponent<Fcontroller>().gmaxTime = 6.5f;
         }
     }
     // Start is called before the first frame update

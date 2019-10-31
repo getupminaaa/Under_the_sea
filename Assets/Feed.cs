@@ -10,7 +10,7 @@ public class Feed : MonoBehaviour
     public float startPosition;
     [HideInInspector]
     public float endPosition;
-
+    public Fcontroller fcon;
 
     public GameObject[] character;
     private void OnTriggerEnter2D(Collider2D colFe)
@@ -19,6 +19,10 @@ public class Feed : MonoBehaviour
         {
             Start();
             ScrollEnd();
+            fcon.keyDirec = -1;
+            fcon.nmaxTime = 6.5f;
+            fcon.fChaKey = true;
+            fcon.Score += 15;
         }
     }
 

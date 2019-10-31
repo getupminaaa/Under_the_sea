@@ -2165,6 +2165,7 @@ MonoBehaviour:
   speed: 0
   startPosition: 0
   endPosition: 0
+  fcon: {fileID: 1484636948}
   character:
   - {fileID: 1634209711}
   - {fileID: 1474436501}
@@ -14526,6 +14527,8 @@ MonoBehaviour:
   - {fileID: 1474436503}
   - {fileID: 383556425}
   gIgnore: 0
+  keyDirec: 0
+  fChaKey: 0
   maxHeight: 11
   thrust: 30
 --- !u!50 &1484636949
@@ -17962,6 +17965,7 @@ MonoBehaviour:
   speed: 0
   startPosition: 0
   endPosition: 0
+  fcon: {fileID: 1484636948}
   character:
   - {fileID: 1634209711}
   - {fileID: 1474436501}

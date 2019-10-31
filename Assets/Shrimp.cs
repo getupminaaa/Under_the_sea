@@ -22,7 +22,7 @@ public class Shrimp : MonoBehaviour
             foreach (uController uObj in uObjs)
             {
                 uObj.uChSize = true;
-                uObj.maxTime = 6.5f;
+                uObj.umaxTime = 6.5f;
             }
         }
     }

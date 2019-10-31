@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class uController : MonoBehaviour
 {
-    public float validatedTime;
-    public float maxTime;
+    public float uvalidatedTime;
+    public float umaxTime;
     public float uScale;
     public bool uChSize;
     // Start is called before the first frame update
@@ -19,13 +19,13 @@ public class uController : MonoBehaviour
     {
         if (uChSize)
         {
-            validatedTime += Time.deltaTime;
+            uvalidatedTime += Time.deltaTime;
             gameObject.transform.localScale = new Vector2(0.5f, 0.5f) * uScale;
         }
-        if (maxTime <= validatedTime)
+        if (umaxTime <= uvalidatedTime)
         {
             uChSize = false;
-            validatedTime = 0;
+            uvalidatedTime = 0;
             gameObject.transform.localScale = new Vector2(0.5f,0.5f);
         }
     }

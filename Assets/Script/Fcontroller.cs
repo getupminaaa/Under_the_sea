@@ -9,9 +9,15 @@ public class Fcontroller : MonoBehaviour
     private int[] baseScore;
     public float validatedTime;
     public float maxTime;
+    public float gvalidatedTime;
+    public float gmaxTime;
+    public float nvalidatedTime;
+    public float nmaxTime;
     public bool bScale;
     public Collider2D[] gocol;
     public bool gIgnore;
+    public int keyDirec;
+    public bool fChaKey;
     private int index;
     public string Name { get; private set; }
     private float score;
@@ -68,6 +74,7 @@ public class Fcontroller : MonoBehaviour
         score = 0;
         Name = "";
         isDead = false;
+        keyDirec = 1;
 
         presentPos = gameObject.transform.position;
     }
@@ -75,19 +82,19 @@ public class Fcontroller : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow) == true)
         {
-            rb2d.AddForce(transform.up * thrust * Time.deltaTime);
+            rb2d.AddForce(transform.up * thrust * Time.deltaTime* keyDirec);
         }
         else if (Input.GetKey(KeyCode.DownArrow) == true)
         {
-            rb2d.AddForce(transform.up * -1 * thrust * Time.deltaTime);
+            rb2d.AddForce(transform.up * -1 * thrust * Time.deltaTime* keyDirec);
         }
         else if (Input.GetKey(KeyCode.RightArrow) == true)
         {
-            rb2d.AddForce(transform.right * thrust * Time.deltaTime);
+            rb2d.AddForce(transform.right * thrust * Time.deltaTime* keyDirec);
         }
         else if (Input.GetKey(KeyCode.LeftArrow) == true)
         {
-            rb2d.AddForce(transform.right * -1 * thrust * Time.deltaTime);
+            rb2d.AddForce(transform.right * -1 * thrust * Time.deltaTime* keyDirec);
         }
 
     }
@@ -110,21 +117,32 @@ public class Fcontroller : MonoBehaviour
             validatedTime = 0;
             gameObject.transform.localScale = new Vector2(1, 1);
         }
+
         if (gIgnore)
         {
             for (int i=0; i<gocol.Length; i++) {
                 gocol[i].enabled = false;
             }
-            validatedTime += Time.deltaTime;       
+            gvalidatedTime += Time.deltaTime;       
          }
-        if (maxTime <= validatedTime)
+        if (gmaxTime <= gvalidatedTime)
         {
             gIgnore = false;
             for (int i = 0; i < gocol.Length; i++)
             {
                 gocol[i].enabled = true;
             }
-            validatedTime = 0;
+            gvalidatedTime = 0;
+        }
+        if (fChaKey)
+        {
+            nvalidatedTime +=Time.deltaTime;
+        }
+        if (nmaxTime <= nvalidatedTime)
+        {
+            fChaKey = false;
+            keyDirec = 1;
+            nvalidatedTime = 0;
         }
     }
     
