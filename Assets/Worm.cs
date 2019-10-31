@@ -19,13 +19,10 @@ public class Worm : MonoBehaviour
             Start();
             ScrollEnd();
             colWo.gameObject.transform.parent.GetComponent<Fcontroller>().bScale = true;
-            colWo.gameObject.transform.parent.GetComponent<Fcontroller>().maxTime = 3.8f;
+            colWo.gameObject.transform.parent.GetComponent<Fcontroller>().maxTime = 6.5f;
         }
     }
-    //if (붙이힌 객체가 물고기인지 확인){
-    //물고기니까
- 
-    //}
+
     // Start is called before the first frame update
 private void Start()
     {

@@ -5,12 +5,13 @@ using UnityEngine;
 public class Fcontroller : MonoBehaviour
 {
     public GameController controller;
-
     public GameObject[] character;
     private int[] baseScore;
     public float validatedTime;
     public float maxTime;
     public bool bScale;
+    public Collider2D[] gocol;
+    public bool gIgnore;
     private int index;
     public string Name { get; private set; }
     private float score;
@@ -70,9 +71,7 @@ public class Fcontroller : MonoBehaviour
 
         presentPos = gameObject.transform.position;
     }
-
-    // Update is called once per frame
-    void Update()
+    void KeyControl()
     {
         if (Input.GetKey(KeyCode.UpArrow) == true)
         {
@@ -91,6 +90,11 @@ public class Fcontroller : MonoBehaviour
             rb2d.AddForce(transform.right * -1 * thrust * Time.deltaTime);
         }
 
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        KeyControl();
         float add = CalculateDistance(presentPos, gameObject.transform.position);
         Score += add;
         presentPos = gameObject.transform.position;
@@ -98,7 +102,7 @@ public class Fcontroller : MonoBehaviour
         if (bScale)
         { 
             validatedTime += Time.deltaTime;
-            gameObject.transform.localScale = new Vector2(1.8f,1.8f);
+            gameObject.transform.localScale = new Vector2(2.3f,2.3f);
         }
         if (maxTime <= validatedTime)
         {
@@ -106,8 +110,24 @@ public class Fcontroller : MonoBehaviour
             validatedTime = 0;
             gameObject.transform.localScale = new Vector2(1, 1);
         }
+        if (gIgnore)
+        {
+            for (int i=0; i<gocol.Length; i++) {
+                gocol[i].enabled = false;
+            }
+            validatedTime += Time.deltaTime;       
+         }
+        if (maxTime <= validatedTime)
+        {
+            gIgnore = false;
+            for (int i = 0; i < gocol.Length; i++)
+            {
+                gocol[i].enabled = true;
+            }
+            validatedTime = 0;
+        }
     }
-
+    
     public float CalculateDistance(Vector2 beforePos, Vector2 afterPos)
     {
         float answer = 0;

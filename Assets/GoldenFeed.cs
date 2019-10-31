@@ -19,6 +19,10 @@ public class GoldenFeed : MonoBehaviour
         {
             Start();
             ScrollEnd();
+            colGF.gameObject.transform.parent.GetComponent<Fcontroller>().gIgnore = true;
+            colGF.gameObject.transform.parent.GetComponent<Fcontroller>().maxTime = 2.5f;
+
+          
         }
     }
     // Start is called before the first frame update
@@ -33,7 +37,7 @@ public class GoldenFeed : MonoBehaviour
         transform.Translate(-1 * (endPosition - startPosition), 0, 0);
         SendMessage("OnScrollEnd", SendMessageOptions.DontRequireReceiver);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
