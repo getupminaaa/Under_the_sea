@@ -28,13 +28,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void OnGUI()
-    {
-        if (GUI.Button(new Rect(Screen.width - 100 - 10, 10, 100, 35), "처음으로"))
-        {
-            GoMain();
-        }
-    }
+   
 
     public void ReGame()
     {
