@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public Fcontroller character;
     GUIStyle guiStyle;
     public GameObject retryBtn;
+    public Text scoreTxt;
     public const int maxRank = 21;
 
     private void Start()
@@ -19,7 +21,8 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-       if (character.IsDead() && Input.GetKey(KeyCode.Space))
+        scoreTxt.text = "점수 : " + character.Score.ToString("0.00") + "점";
+        if (character.IsDead() && Input.GetKey(KeyCode.Space))
         {
             ReGame();
         }
@@ -27,7 +30,6 @@ public class GameController : MonoBehaviour
 
     private void OnGUI()
     {
-        string text = "점수 : " + character.Score.ToString("0.00") + "점";
         if (GUI.Button(new Rect(Screen.width - 100 - 10, 10, 100, 35), "처음으로"))
         {
             GoMain();
