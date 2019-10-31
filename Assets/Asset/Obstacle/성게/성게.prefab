@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6762794464668481384}
   - component: {fileID: 475675608892266910}
   - component: {fileID: 2596070792729765753}
+  - component: {fileID: 7366023785131653790}
   m_Layer: 0
   m_Name: "\uC131\uAC8C"
   m_TagString: Untagged
@@ -169,3 +170,17 @@ MonoBehaviour:
   minHeight: -3.55
   maxHeight: 2.6
   thing: {fileID: 4690490000353551867}
+--- !u!114 &7366023785131653790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4690490000353551867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5108fee4c0a70f14ca14f86446d5ed5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  radius: 0.1
