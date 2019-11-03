@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class uController : MonoBehaviour
+public class UController : MonoBehaviour
 {
     public float uvalidatedTime;
     public float umaxTime;
@@ -26,7 +26,12 @@ public class uController : MonoBehaviour
         {
             uChSize = false;
             uvalidatedTime = 0;
-            gameObject.transform.localScale = new Vector2(0.5f,0.5f);
+            gameObject.transform.localScale = new Vector2(0.5f, 0.5f);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // if (collision.gameObject.tag == "Obstacle") Physics2D.IgnoreCollision(collision.collider, this.GetComponent<Collider2D>());
     }
 }

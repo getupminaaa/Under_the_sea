@@ -2,8 +2,8 @@
 
 public class MoveCircle : MonoBehaviour
 {
-    public float speed = 3f;
-    public float radius = 0.1f;
+    public float speed = 2f;
+    public float radius = 0.07f;
 
     private Vector2 center;
     private float angle;

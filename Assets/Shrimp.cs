@@ -10,7 +10,7 @@ public class Shrimp : MonoBehaviour
     public float startPosition;
     [HideInInspector]
     public float endPosition;
-    public uController[] uObjs;
+    public UController[] uObjs;
     
     public GameObject[] character;
     private void OnTriggerEnter2D(Collider2D colSh)
@@ -19,7 +19,7 @@ public class Shrimp : MonoBehaviour
         {
             Start();
             ScrollEnd();
-            foreach (uController uObj in uObjs)
+            foreach (UController uObj in uObjs)
             {
                 uObj.uChSize = true;
                 uObj.umaxTime = 6.5f;

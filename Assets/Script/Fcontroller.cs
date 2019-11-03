@@ -158,16 +158,11 @@ public class Fcontroller : MonoBehaviour
 
     private void OnGUI()
     {
-        if (!isDead)
-        {
-            return;
-        }
-        else
+        if (isDead)
         {
             controller.retryBtn.SetActive(true);
+            Name = GUI.TextField(new Rect((Screen.width - 300) / 2, 120, 300, 30), Name);
         }
-
-        Name = GUI.TextField(new Rect((Screen.width - 300) / 2, 120, 300, 30), Name);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

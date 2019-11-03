@@ -7,7 +7,7 @@ public class loadPlayScene : MonoBehaviour
 {
     private void Awake()
     {
-        Screen.SetResolution(1280, 720, true);
+        
     }
     public void GoToPlayScene()
     {

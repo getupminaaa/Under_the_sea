@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
         guiStyle = new GUIStyle("Button");
         guiStyle.alignment = TextAnchor.MiddleCenter;
         retryBtn.SetActive(false);
+
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -41,7 +43,7 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("게임플레이화면");
     }
 
-    private void GoMain()
+    public void GoMain()
     {
         Time.timeScale = 1;
         if (character.IsDead())

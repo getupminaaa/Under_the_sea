@@ -65,6 +65,7 @@ public class RankScreen : MonoBehaviour
             y += 62;
         }
 
+        y = 620;
         if (GUI.Button(new Rect((Screen.width - 50) / 2, y, height, height), "<"))
         {
             Page--;
